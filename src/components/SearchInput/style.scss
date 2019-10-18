@@ -1,0 +1,18 @@
+.search-wrapper {
+  position: relative;
+  width: 100%;
+
+  .search-input-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    color: rgb(135, 150, 165);
+    margin-top: -12px;
+  }
+
+  .search-input {
+    color: #495057;
+    border: 1px solid rgba(135, 150, 165, 0.25);
+    padding-left: 42px;
+  }
+}

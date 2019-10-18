@@ -1,0 +1,10 @@
+.main-layout-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  .main-content {
+    padding: 32px;
+    width: 100%;
+  }
+}

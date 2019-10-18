@@ -1,0 +1,55 @@
+.exercises-header {
+  .exercises-header-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+}
+
+.exercises-list-filter {
+  display: flex;
+  align-items: center;
+
+  .exercises-list-filter-item {
+    padding: 8px;
+    width: auto;
+  }
+
+  .exercises-list-filter-search {
+    padding: 8px;
+    width: 100%;
+  }
+}
+
+.exercises-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .exercises-item {
+    margin: 24px 0;
+
+    .exercises-item-article {
+      background: #fff;
+      border-radius: 4px;
+      border: 1px solid rgba(135,150,165, .25);
+      padding: 24px;
+
+      .exercises-item-title {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      .exercises-item-description {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      .exercises-item-footer {
+        text-align: right;
+      }
+    }
+  }
+}

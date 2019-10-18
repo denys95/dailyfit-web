@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600&display=swap');
+
+.heading {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+  margin: 0.5rem 0;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  line-height: 50px;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 42px;
+  line-height: 39px;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 400;
+  margin: 0.5rem 0;
+}
+
+em {
+  font-weight: 400;
+}
+
+p {
+  font-size: 16px;
+  line-height: 26px;
+
+  &.big {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &.small {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+small {
+  font-size: 80%;
+  font-weight: 400;
+}
+
+mark {
+  padding: 0.2em;
+  background-color: #fcf8e3;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.italic {
+  font-style: italic !important;
+}
+
+.thin {
+  font-weight: 300 !important;
+}
+
+.medium {
+  font-weight: 500 !important;
+}
+
+.semi-bold {
+  font-weight: 600 !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.extra-bold {
+  font-weight: 800 !important;
+}
+
+.underline {
+  text-decoration: underline;
+
+  &.dotted {
+    text-decoration-style: dotted;
+  }
+
+  &.dashed {
+    text-decoration-style: dashed;
+  }
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-highlighted {
+  color: #00a89a;
+}

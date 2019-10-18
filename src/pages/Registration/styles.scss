@@ -1,0 +1,42 @@
+$container-image: 'https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80';
+
+.registration-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url($container-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .registration-container-row {
+    min-height: 100vh;
+    min-width: 100vw;
+
+    .registration-auth-form-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 64px;
+
+      .registration-auth-form-card {
+        width: 100%;
+        max-width: 500px;
+
+        .registration-auth-form-title {
+          font-size: 32px;
+          line-height: 40px;
+          text-align: center;
+          margin-bottom: 32px;
+        }
+      }
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .registration-auth-form-card-footer {
+    margin-top: 24px;
+    text-align: center;
+  }
+}

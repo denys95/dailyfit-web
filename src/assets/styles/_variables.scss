@@ -1,0 +1,86 @@
+$white: #fff;
+$green: #2bd195;
+$yellow: #f9b935;
+$red: #ff5e5e;
+$cyan: #489be8;
+$blue: #3e6ad1;
+$purple: #bc56fe;
+$orange: #ff8d2a;
+$gray: #d3d3d3;
+
+$theme-colors: () !default;
+
+$theme-colors: map-merge(
+    (
+      "primary": $blue,
+      "accent": $yellow,
+      "danger": $red
+    ),
+    $theme-colors
+);
+
+$text-colors: () !default;
+
+$text-colors: map-merge(
+    (
+      "main": $white,
+      "paragraph": rgba($white, 0.8),
+      "link": $white
+    ),
+    $text-colors
+);
+
+$body-color: #242641;
+
+$overlay-color: rgba(40, 40, 40, 0.8);
+
+$breakpoints: () !default;
+
+$breakpoints: map-merge(
+    (
+      "xs": 0,
+      "sm": 480px,
+      "md": 768px,
+      "ml": 928px,
+      "lg": 1140px,
+      "xl": 1900px,
+    ),
+    $breakpoints
+);
+
+$fonts: () !default;
+
+$fonts: map-merge(
+    (
+      "primary": Montserrat,
+    ),
+    $fonts
+);
+
+$gutters: () !default;
+
+$gutters: map-merge(
+    (
+      "main": 16px,
+      "xs": 12px,
+      "sm": 12px,
+      "md": 12px,
+      "lg": 12px,
+    ),
+    $gutters
+);
+
+$containers: () !default;
+
+$containers: map-merge(
+    (
+      "mobile": 540px,
+      "tablet": 960px,
+      "desktop": 1140px
+    ),
+    $containers
+);
+
+$columns-count: 12;
+
+$container-padding-md: 32px;

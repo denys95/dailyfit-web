@@ -1,0 +1,17 @@
+.form-helper-message {
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 8px;
+
+  &.form-helper-success {
+    color: #098e00;
+  }
+
+  &.form-helper-error {
+    color: #ff5757;
+  }
+
+  &.form-helper-description {
+    color: #333;
+  }
+}

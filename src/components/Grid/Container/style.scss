@@ -1,0 +1,29 @@
+@import '../../../assets/styles/mixins';
+
+$container-mobile: 540px;
+$container-tablet: 960px;
+$container-desktop: 1140px;
+
+.container-wrapper {
+  display: flex;
+  align-items: stretch;
+  flex-flow: row nowrap;
+}
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: $container-desktop;
+  @include clearfix();
+}
+
+.container-fluid {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  @include clearfix();
+}

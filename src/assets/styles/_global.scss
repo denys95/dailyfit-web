@@ -1,0 +1,183 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #000;
+  position: relative;
+  background: #fafafa;
+  margin: 0;
+  padding: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.transparent {
+  background: transparent !important;
+}
+
+hr {
+  &.divider {
+    border: 0 none;
+    border-top: 1px solid #ebebeb;
+    background: none;
+    height: 0;
+    margin: 0;
+  }
+
+  &.dashed {
+    border-top: 1px dashed #ebebeb;
+  }
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+  border-style: none;
+}
+
+a {
+  color: #3e6ad1;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  outline: none;
+}
+
+input {
+  &[type="radio"],
+  &[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+}
+
+button {
+  -webkit-appearance: none;
+  outline: none;
+}
+
+
+.fl-left {
+  float: left;
+}
+
+.fl-right {
+  float: right;
+}
+
+.mg-left-auto {
+  margin-left: auto;
+}
+
+.mg-right-auto {
+  margin-right: auto;
+}
+
+.flex {
+  display: flex;
+
+  &.flex-start {
+    justify-content: flex-start;
+  }
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
+
+  &.flex-center {
+    justify-content: center;
+  }
+
+  &.flex-between {
+    justify-content: space-between;
+  }
+
+  &.flex-around {
+    justify-content: space-around;
+  }
+
+  &.direction-column {
+    flex-direction: column;
+  }
+
+  &.direction-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .hide-xs {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 959px) {
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1199px) {
+  .hide-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hide-lg {
+    display: none !important;
+  }
+}

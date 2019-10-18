@@ -1,0 +1,30 @@
+@mixin alert($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+}
+
+.alert {
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  padding: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  &.alert-primary {
+    @include alert(#004085, #cce5ff, #b8daff);
+  }
+
+  &.alert-success {
+    @include alert(#155724, #d4edda, #c3e6cb);
+  }
+
+  &.alert-error {
+    @include alert(#721c24, #f8d7da, #f5c6cb);
+  }
+
+  &.alert-warning {
+    @include alert(#856404, #fff3cd, #ffeeba);
+  }
+}

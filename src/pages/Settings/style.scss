@@ -1,0 +1,70 @@
+.settings-header {
+  .settings-header-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+}
+
+.settings-content {
+  .settings-content-card {
+    &+.settings-content-card {
+      margin-top: 24px;
+    }
+  }
+
+  .settings-profile {
+    display: flex;
+    align-items: center;
+
+    .settings-profile-image-container {
+      position: relative;
+      border-radius: 50%;
+      background: #5e676f;
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px 0 rgba(50, 50, 50, 0.15);
+
+      .settings-profile-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        margin-top: -12px;
+        margin-left: -12px;
+      }
+    }
+
+    .settings-profile-name-container {
+      margin-left: 16px;
+
+      .settings-profile-name {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .settings-profile-email {
+        font-size: 13px;
+        line-height: 16px;
+        color: #696f79;
+      }
+    }
+  }
+
+  .settings-security {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 24px;
+  }
+
+  .settings-form-group {
+    +.settings-form-group {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #eee;
+    }
+  }
+}

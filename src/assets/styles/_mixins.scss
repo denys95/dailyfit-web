@@ -1,0 +1,137 @@
+$breakpoints: () !default;
+
+$breakpoints: map-merge(
+    (
+      "xs": 0,
+      "sm": 480px,
+      "md": 768px,
+      "ml": 928px,
+      "lg": 1140px,
+      "xl": 1900px,
+    ),
+    $breakpoints
+);
+
+@mixin media-breakpoint-up($size) {
+  $max: map-get($breakpoints, $size);
+
+  @if $max {
+    @media screen and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($size) {
+  $min: map-get($breakpoints, $size);
+
+  @if $min {
+    @media screen and (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($lower, $upper) {
+  $min: map-get($breakpoints, $lower);
+  $max: map-get($breakpoints, $upper);
+
+  @if $min != null and $max != null {
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-only($name) {
+  $min: map-get($breakpoints, $name);
+  $max: map-get($breakpoints, $name);
+
+  @if $min != null and $max != null {
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $breakpoints);
+  }
+}
+
+@mixin clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@mixin visible($state: block) {
+  display: $state;
+  visibility: visible;
+}
+
+@mixin heading($size, $line) {
+  font-size: $size;
+  line-height: $line;
+}
+
+@mixin invisible {
+  visibility: hidden;
+}
+
+@mixin if-ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (-o-min-device-pixel-ratio: 3 / 2),
+  only screen and (min-resolution: 1.5dppx) {
+    @content;
+  }
+}
+
+@mixin antialias {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+@mixin truncate($boundary) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: $boundary;
+}

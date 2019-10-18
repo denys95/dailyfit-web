@@ -1,0 +1,18 @@
+$column-padding: 12px;
+
+.form-row {
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  margin-left: -$column-padding;
+  margin-right: -$column-padding;
+}
+
+.form-item {
+  .form-item-label {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 8px;
+  }
+}

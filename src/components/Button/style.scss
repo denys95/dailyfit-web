@@ -1,0 +1,169 @@
+@import '../../assets/styles/mixins.scss';
+
+@mixin button-style($color, $background-color, $border-color) {
+  color: $color;
+  background-color: $background-color;
+  border-color: $border-color;
+}
+
+.btn {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 18px;
+  font-weight: 500;
+  text-align: center;
+  color: #606266;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  padding: 9px 14px;
+  margin: 0;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &.btn-block {
+    display: block;
+  }
+
+  &.btn-shadow {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &.btn-default {
+    @include button-style(#606266, #fff, #dcdfe6);
+
+    &:hover {
+      @include button-style(#409eff, #c6e2ff, #ecf5ff);
+    }
+
+    &:disabled,
+    &.disabled,
+    &.disabled:hover,
+    &.disabled:focus {
+      @include button-style(#c0c4cc, #fff, #ebeef5);
+      cursor: default;
+    }
+  }
+
+  &.btn-primary {
+    @include button-style(#fff, #3e6ad1, #3e6ad1);
+
+    &:hover {
+      @include button-style(#fff, #5386c2, #5386c2);
+    }
+
+    &:disabled,
+    &.disabled,
+    &.disabled:hover,
+    &.disabled:focus {
+      @include button-style(#fff, rgba(#5386c2, 0.6), #ebeef5);
+      cursor: default;
+    }
+  }
+
+  &.btn-secondary {
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+
+    &:hover {
+      color: #bc56fe;
+      border-color: #bc56fe;
+
+      a {
+        color: #bc56fe;
+      }
+    }
+  }
+
+  &.btn-transparent {
+    @include button-style(#fff, transparent, transparent);
+
+    &:hover {
+      @include button-style(rgba(#fff, 0.6), transparent, transparent);
+    }
+  }
+
+  &.btn-info {
+    @include button-style(#fff, #909399, #909399);
+
+    &:hover {
+      @include button-style(#fff, #a6a9ad, #a6a9ad);
+    }
+  }
+
+  &.btn-warning {
+    @include button-style(#fff, #e6a23c, #e6a23c);
+
+    &:hover {
+      @include button-style(#fff, #ebb563, #ebb563);
+    }
+  }
+
+  &.btn-danger {
+    @include button-style(#fff, #f56c6c, #f56c6c);
+
+    &:hover {
+      @include button-style(#fff, #f78989, #f78989);
+    }
+  }
+
+  // button sizes
+
+  &.btn-mini {
+    font-size: 12px;
+    padding: 4px 20px;
+    min-height: 24px;
+  }
+
+  &.btn-small {
+    font-size: 13px;
+    min-height: 28px;
+    padding: 6px 20px;
+  }
+
+  &.btn-medium {
+    font-size: 14px;
+    min-height: 32px;
+    padding: 8px 16px;
+  }
+
+  &.btn-large {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 16px 32px;
+    min-height: 52px;
+  }
+
+  // button typography
+
+  &.upper {
+    text-transform: uppercase;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include media-breakpoint-down('sm') {
+    flex-direction: row;
+  }
+
+  & :last-child {
+    margin-top: 32px;
+
+    @include media-breakpoint-down('sm') {
+      margin-top: 0;
+      margin-left: 16px;
+    }
+  }
+}

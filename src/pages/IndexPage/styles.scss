@@ -1,0 +1,14 @@
+.main-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #282d34;
+  color: #fff;
+
+  h1 {
+    font-size: 6em;
+    line-height: 2em;
+  }
+}
