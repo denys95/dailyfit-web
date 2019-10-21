@@ -8,7 +8,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.scss', '.svg'],
     alias: {
-      app: path.resolve(__dirname, 'src/'),
+      app: path.resolve(__dirname, './'),
     },
   },
   output: {

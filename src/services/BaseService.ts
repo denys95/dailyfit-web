@@ -1,4 +1,3 @@
-/** @prettier */
 import axios, { AxiosResponse } from 'axios';
 
 interface ApiOptions {

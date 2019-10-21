@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { FormikErrors } from 'formik';
 
 import { FormHelperMessage } from '../../components';
 
@@ -7,7 +8,7 @@ import './style.scss';
 
 interface FormItemProps {
   className?: string;
-  message?: string;
+  message?: string | FormikErrors<any>;
   label?: string;
   htmlFor?: string;
   type?: 'success' | 'error' | 'description';

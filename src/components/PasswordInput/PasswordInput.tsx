@@ -9,8 +9,12 @@ interface PasswordInputProps {
   size?: string;
   placeholder?: string;
   eye?: boolean;
+  name?: string;
+  readonly?: boolean;
+  invalid?: boolean;
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface PasswordInputState {
@@ -23,8 +27,12 @@ export class PasswordInput extends React.Component<
 > {
   static defaultProps = {
     eye: true,
+    name: '',
+    readonly: true,
+    invalid: false,
     value: '',
     onChange: null,
+    onBlur: null,
   };
 
   constructor(props) {
@@ -48,8 +56,11 @@ export class PasswordInput extends React.Component<
       placeholder,
       size,
       eye,
+      readonly,
+      name,
       value,
       onChange,
+      onBlur,
     } = this.props;
     const { isTypePassword } = this.state;
 
@@ -59,8 +70,11 @@ export class PasswordInput extends React.Component<
           type={isTypePassword ? 'password' : 'text'}
           placeholder={placeholder}
           size={size}
+          readonly={readonly}
+          name={name}
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
         />
         {
           eye && (

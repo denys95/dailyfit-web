@@ -4,15 +4,27 @@ const API_URL = process.env.API_URL;
 
 class ApiService extends BaseService {
 
+  private static instance: ApiService;
+
+  private constructor() {
+    super();
+  }
+
+  public static getInstance() {
+    if (!ApiService.instance) {
+      ApiService.instance = new ApiService();
+    }
+    return ApiService.instance;
+  }
+
   /**
-   * POST /api/auth/login
-   * Login to system
+   * GET /api/user/:id
+   * Get user info
    */
-  public login(request): Promise<any> {
-    const url = `http://www.mocky.io/v2/5da9c55631000036021e0bb9`;
+  public getUser(): Promise<any> {
+    const url = `http://www.mocky.io/v2/5dad97fc2d0000a542e4bb35`;
     return this.authorizedRequest(url, {
       method: 'GET',
-      data: request,
     });
   }
 
@@ -29,4 +41,4 @@ class ApiService extends BaseService {
   }
 }
 
-export const apiService = new ApiService();
+export const apiService = ApiService.getInstance();

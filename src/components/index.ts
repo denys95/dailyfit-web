@@ -2,6 +2,7 @@ export * from './Grid';
 export * from './Layouts';
 export * from './Section/Section';
 export * from './Card/Card';
+export * from './Form/Form';
 export * from './FormGroup/FormGroup';
 export * from './FormItem/FormItem';
 export * from './FormHelperMessage/FormHelperMessage';

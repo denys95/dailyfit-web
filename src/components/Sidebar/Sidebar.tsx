@@ -52,9 +52,9 @@ export class Sidebar extends React.Component<SidebarProps> {
 
     return (
       <aside className="sidebar">
-        {/*<div className="sidebar-logo">*/}
-        {/*  Daily<span style={{ color: '#2bd195' }}>Fit</span>*/}
-        {/*</div>*/}
+        <div className="sidebar-logo">
+          Daily<span style={{ color: '#2bd195' }}>Fit</span>
+        </div>
         <div className="sidebar-content">
           <nav className="sidebar-nav">
             <ul className="sidebar-nav-list">

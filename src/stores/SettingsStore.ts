@@ -10,24 +10,25 @@ export class SettingsStore {
 
   constructor() {
     this.user = {
-      firstName: 'Jacqueline',
-      lastName: 'Reid',
-      email: 'jacqueline@company.co',
-      avatar: 'http://flatfull.com/themes/basik/assets/img/a9.jpg',
-      birthday: '28.05.1995',
+      firstName: '',
+      lastName: '',
+      email: '',
+      avatar: '',
+      birthday: '',
       gender: Gender.MALE,
-      city: 'Paris',
+      city: '',
     };
   }
 
   @action
-  login = async (authData: any) => {
+  getUser = async () => {
     this.state = OperationState.Pending;
     try {
-      const response = await apiService.login(authData);
+      const response = await apiService.getUser();
       if (!response.error) {
         runInAction(() => {
           this.state = OperationState.Success;
+          this.user = response.data;
         });
       } else {
         this.state = OperationState.Error;

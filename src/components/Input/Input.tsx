@@ -6,6 +6,7 @@ import './style.scss';
 interface InputProps {
   type?: string;
   className?: string;
+  name?: string;
   size?: string;
   autoWidth?: boolean;
   valid?: boolean;
@@ -15,12 +16,14 @@ interface InputProps {
   readonly?: boolean;
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export class Input extends React.Component<InputProps> {
   static defaultProps = {
     type: 'text',
     className: '',
+    name: '',
     size: 'default',
     autoWidth: false,
     valid: false,
@@ -31,12 +34,14 @@ export class Input extends React.Component<InputProps> {
     readonly: true,
     value: '',
     onChange: null,
+    onBlur: null,
   };
 
   render() {
     const {
       type,
       className,
+      name,
       size,
       autoWidth,
       valid,
@@ -46,6 +51,7 @@ export class Input extends React.Component<InputProps> {
       readonly,
       value,
       onChange,
+      onBlur,
     } = this.props;
 
     return (
@@ -63,9 +69,11 @@ export class Input extends React.Component<InputProps> {
             className,
           )
         }
+        name={name}
         readOnly={readonly}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
     );
   }
