@@ -16,9 +16,11 @@ import {
   Textarea,
   FormGroup,
   Form,
+  RadioButton,
+  Select,
 } from '../../components';
 
-import { Stores } from '../../enums';
+import { Stores, Gender } from '../../enums';
 
 import { SettingsStore } from '../../stores';
 
@@ -42,43 +44,58 @@ export class Settings extends React.Component<Props> {
       .required('Password is required'),
   });
 
-  componentDidMount(): void {
-    this.loadUserData();
+  private profileValidationSchema = yup.object().shape({
+    name: yup.string(),
+    gender: yup.string(),
+    birthday: yup.string(),
+    country: yup.string(),
+    instagram: yup.string(),
+  });
+
+  componentDidMount() {
+    this.loadData();
   }
 
-  loadUserData = async () => {
-    const { getUser } = this.props[Stores.SETTINGS];
+  loadData = async (): Promise<void> => {
+    const { getCountries, getUser } = this.props[Stores.SETTINGS];
+    await getCountries();
     await getUser();
   };
 
-  handleChangePassword = (values, actions) => {
+  handleChangePassword = (values, actions): void => {
     console.log('PASSWORD VALUES: ', values);
     console.log('PASSWORD ACTIONS: ', actions);
   };
 
-  handleChangeProfile = (values, actions) => {
+  handleChangeProfile = (values, actions): void => {
     console.log('PROFILE VALUES: ', values);
     console.log('PROFILE ACTIONS: ', actions);
   };
 
   render() {
     const {
+      countries,
       user: {
-        firstName,
-        lastName,
+        name,
         email,
         avatar,
         birthday,
         gender,
-        city,
+        language,
       },
-      userName,
     } = this.props[Stores.SETTINGS];
 
     const securityInitialValues = {
       oldPassword: '',
       newPassword: '',
       confirmPassword: '',
+    };
+
+    const profileInitialValues = {
+      name,
+      birthday,
+      gender,
+      language,
     };
 
     return (
@@ -99,7 +116,7 @@ export class Settings extends React.Component<Props> {
                         <img
                           className="settings-profile-image"
                           src={avatar}
-                          alt={userName}
+                          alt={name}
                         />
                       ) : (
                         <MaterialIcon
@@ -111,7 +128,7 @@ export class Settings extends React.Component<Props> {
                   </div>
                   <div className="settings-profile-name-container">
                     <div className="settings-profile-name">
-                      {userName}
+                      {name}
                     </div>
                     <div className="settings-profile-email">
                       {email}
@@ -191,7 +208,9 @@ export class Settings extends React.Component<Props> {
                         </Row>
                         <Row className="form-row">
                           <Column>
-                            <Button type="submit" fullWidth>Save</Button>
+                            <Button type="submit" fullWidth>
+                              Save
+                            </Button>
                           </Column>
                         </Row>
                       </Form>
@@ -202,93 +221,85 @@ export class Settings extends React.Component<Props> {
             </Column>
             <Column md={8}>
               <Card className="settings-content-card">
-                <Form>
-                  <FormGroup
-                    title="Profile"
-                    className="settings-form-group"
-                  >
-                    <Row className="form-row">
-                      <Column md={6}>
-                        <FormItem label="First name">
-                          <Input
-                            size="large"
-                            value={firstName}
-                          />
-                        </FormItem>
-                      </Column>
-                      <Column md={6}>
-                        <FormItem label="Last name">
-                          <Input
-                            size="large"
-                            value={lastName}
-                          />
-                        </FormItem>
-                      </Column>
-                    </Row>
-                  </FormGroup>
-                  <FormGroup
-                    title="Address"
-                    className="settings-form-group"
-                  >
-                    <Row className="form-row">
-                      <Column md={4}>
-                        <FormItem label="Gender">
-                          <Input
-                            size="large"
-                            value={gender}
-                          />
-                        </FormItem>
-                      </Column>
-                      <Column md={4}>
-                        <FormItem label="Birthday">
-                          <Input
-                            size="large"
-                            value={birthday}
-                          />
-                        </FormItem>
-                      </Column>
-                      <Column md={4}>
-                        <FormItem label="City">
-                          <Input
-                            size="large"
-                            value={city}
-                          />
-                        </FormItem>
-                      </Column>
-                    </Row>
-                  </FormGroup>
-                  <FormGroup
-                    title="Social"
-                    className="settings-form-group"
-                  >
-                    <Row className="form-row">
-                      <Column md={4}>
-                        <FormItem label="Facebook">
-                          <Input size="large"/>
-                        </FormItem>
-                      </Column>
-                      <Column md={4}>
-                        <FormItem label="Twitter">
-                          <Input size="large"/>
-                        </FormItem>
-                      </Column>
-                      <Column md={4}>
-                        <FormItem label="Instagram">
-                          <Input size="large"/>
-                        </FormItem>
-                      </Column>
-                    </Row>
-                  </FormGroup>
-                  <Row className="form-row">
-                    <Column>
-                      <FormItem label="About">
-                        <Textarea
-                          placeholder="Enter your bio"
-                        />
-                      </FormItem>
-                    </Column>
-                  </Row>
-                </Form>
+                <Formik
+                  initialValues={profileInitialValues}
+                  onSubmit={this.handleChangeProfile}
+                  validationSchema={this.profileValidationSchema}
+                  enableReinitialize={true}
+                  render={props => (
+                    <Form>
+                      <FormGroup
+                        title="Profile"
+                        className="settings-form-group"
+                      >
+                        <Row className="form-row">
+                          <Column md={6}>
+                            <FormItem label="Name">
+                              <Input
+                                name="name"
+                                size="large"
+                                value={props.values.name}
+                                onChange={props.handleChange}
+                                onBlur={props.handleBlur}
+                              />
+                            </FormItem>
+                          </Column>
+                        </Row>
+                      </FormGroup>
+                      <FormGroup
+                        title="Address"
+                        className="settings-form-group"
+                      >
+                        <Row className="form-row">
+                          <Column md={4}>
+                            <FormItem label="Gender">
+                              <div className="radio-button-group">
+                                <RadioButton
+                                  id="male"
+                                  name="gender"
+                                  label="Male"
+                                  value={props.values.gender}
+                                  onChange={props.handleChange}
+                                  checked={props.values.gender === Gender.MALE}
+                                />
+                                <RadioButton
+                                  id="female"
+                                  name="gender"
+                                  label="Female"
+                                  value={props.values.gender}
+                                  onChange={props.handleChange}
+                                  checked={props.values.gender === Gender.FEMALE}
+                                />
+                              </div>
+                            </FormItem>
+                          </Column>
+                          <Column md={4}>
+                            <FormItem label="Birthday">
+                              <Input
+                                name="birthday"
+                                size="large"
+                                value={props.values.birthday}
+                                onChange={props.handleChange}
+                                onBlur={props.handleBlur}
+                              />
+                            </FormItem>
+                          </Column>
+                          <Column md={4}>
+                            <FormItem label="Country">
+                              <Select
+                                name="language"
+                                items={countries}
+                                value={props.values.language}
+                                onChange={props.handleChange}
+                                onBlur={props.handleBlur}
+                              />
+                            </FormItem>
+                          </Column>
+                        </Row>
+                      </FormGroup>
+                    </Form>
+                  )}
+                />
               </Card>
             </Column>
           </Row>

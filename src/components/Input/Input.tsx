@@ -30,8 +30,7 @@ export class Input extends React.Component<InputProps> {
     invalid: false,
     innerRef: null,
     placeholder: '',
-    // TODO: change readonly value to false by default
-    readonly: true,
+    readonly: false,
     value: '',
     onChange: null,
     onBlur: null,

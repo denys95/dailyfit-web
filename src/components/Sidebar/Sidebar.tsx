@@ -1,4 +1,3 @@
-/** @prettier */
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 
@@ -16,7 +15,7 @@ export interface SidebarItem {
   icon?: string;
 }
 
-interface SidebarProps {
+interface Props {
   [Stores.ROUTER]?: RouterStore,
   items?: SidebarItem[];
   className?: string;
@@ -24,7 +23,7 @@ interface SidebarProps {
 
 @inject(Stores.ROUTER)
 @observer
-export class Sidebar extends React.Component<SidebarProps> {
+export class Sidebar extends React.Component<Props> {
   static defaultProps = {
     className: '',
     items: [{
@@ -34,6 +33,14 @@ export class Sidebar extends React.Component<SidebarProps> {
     }, {
       label: 'Exercises',
       link: '/exercises',
+      icon: 'view-list',
+    }, {
+      label: 'Workouts',
+      link: '/workouts',
+      icon: 'view-list',
+    }, {
+      label: 'Calendar',
+      link: '/calendar',
       icon: 'view-list',
     }, {
       label: 'Settings',

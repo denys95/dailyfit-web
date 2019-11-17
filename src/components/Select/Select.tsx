@@ -1,39 +1,60 @@
-/** @prettier */
 import * as React from 'react';
 import classNames from 'classnames';
 
 import './style.scss';
 
-export interface SelectItem {
+export interface SelectOption {
   label: string;
   value: string;
 }
 
 interface SelectProps {
+  id?: string,
+  name?: string,
   className?: string;
-  items?: SelectItem[];
+  readonly?: boolean;
+  items?: SelectOption[];
   value?: string;
   placeholder?: string;
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export class Select extends React.Component<SelectProps> {
   static defaultProps = {
+    id: null,
+    name: null,
     className: '',
     items: [],
     placeholder: 'Select item',
+    value: '',
+    onChange: null,
+    onBlur: null,
   };
 
   render() {
     const {
+      id,
+      name,
       items,
       placeholder,
       className,
+      value,
+      onChange,
+      onBlur
     } = this.props;
 
     return (
-      <select className={
-        classNames('ui-select', className)
-      }>
+      <select
+        id={id}
+        name={name}
+        className={
+          classNames('ui-select', className)
+        }
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+      >
         <option value="">
           {placeholder}
         </option>

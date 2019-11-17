@@ -7,12 +7,6 @@
 }
 
 .settings-content {
-  .settings-content-card {
-    &+.settings-content-card {
-      margin-top: 24px;
-    }
-  }
-
   .settings-profile {
     display: flex;
     align-items: center;
@@ -23,6 +17,7 @@
       background: #5e676f;
       width: 48px;
       height: 48px;
+      flex-shrink: 0;
       overflow: hidden;
       box-shadow: 0 5px 10px 0 rgba(50, 50, 50, 0.15);
 
@@ -65,6 +60,17 @@
       margin-top: 24px;
       padding-top: 24px;
       border-top: 1px solid #eee;
+    }
+  }
+
+  .radio-button-group {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 14px 0;
+
+    .ui-radio + .ui-radio {
+      margin-left: 16px;
     }
   }
 }

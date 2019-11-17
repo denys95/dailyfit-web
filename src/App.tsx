@@ -14,6 +14,11 @@ import {
   Registration,
   ResetPassword,
   Settings,
+  ExercisesView,
+  Workouts,
+  WorkoutsView,
+  WorkoutsEdit,
+  Calendar,
 } from './pages';
 
 import './assets/styles/main.scss';
@@ -32,8 +37,13 @@ class App extends React.Component {
           <Route exact path={Routes.FORGOT_PASSWORD} component={ForgotPassword}/>
           <Route exact path={Routes.RESET_PASSWORD} component={ResetPassword}/>
           <Route path={Routes.DASHBOARD} component={Dashboard}/>
-          <Route path={Routes.EXERCISES} component={Exercises}/>
-          <Route path={Routes.SETTINGS} component={Settings}/>
+          <Route exact path={Routes.EXERCISES} component={Exercises}/>
+          <Route path={Routes.EXERCISES_VIEW} component={ExercisesView}/>
+          <Route exact path={Routes.WORKOUTS} component={Workouts}/>
+          <Route exact path={Routes.WORKOUTS_VIEW} component={WorkoutsView}/>
+          <Route path={Routes.WORKOUTS_EDIT} component={WorkoutsEdit}/>
+          <Route exact path={Routes.CALENDAR} component={Calendar}/>
+          <Route exact path={Routes.SETTINGS} component={Settings}/>
         </Router>
       </Provider>
     );

@@ -9,6 +9,13 @@ export enum Routes {
   DASHBOARD = '/dashboard',
 
   EXERCISES = '/exercises',
+  EXERCISES_VIEW = '/exercises/:id',
+
+  WORKOUTS = '/workouts',
+  WORKOUTS_VIEW = '/workouts/:id',
+  WORKOUTS_EDIT = '/workouts/:id/edit',
+
+  CALENDAR = '/calendar',
 
   SETTINGS = '/settings',
 }

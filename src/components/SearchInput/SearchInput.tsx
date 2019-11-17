@@ -20,6 +20,7 @@ interface SearchInputProps {
   placeholder?: string;
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export class SearchInput extends React.Component<SearchInputProps> {
@@ -35,10 +36,11 @@ export class SearchInput extends React.Component<SearchInputProps> {
     readonly: false,
     value: '',
     onChange: null,
+    onBlur: null,
   };
 
   render() {
-    const { className, inputClassName, value, onChange } = this.props;
+    const { className, inputClassName, value, onChange, onBlur } = this.props;
 
     return (
       <div className={
@@ -52,6 +54,7 @@ export class SearchInput extends React.Component<SearchInputProps> {
           }
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
         />
         <MaterialIcon
           icon="search"

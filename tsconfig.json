@@ -11,8 +11,8 @@
       "dom"
     ],
     "removeComments": true,
-    "allowSyntheticDefaultImports": false,
-    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false,
     "jsx": "react",
     "allowJs": true,
     "baseUrl": "./",

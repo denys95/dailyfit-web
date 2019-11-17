@@ -1,4 +1,3 @@
-/** @prettier */
 import classNames from 'classnames';
 
 export class UiHelpers {

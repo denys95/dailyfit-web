@@ -15,6 +15,7 @@ interface TextareaProps {
   readonly?: boolean;
   value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onBlur?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export class Textarea extends React.Component<TextareaProps> {
@@ -27,10 +28,10 @@ export class Textarea extends React.Component<TextareaProps> {
     invalid: false,
     innerRef: null,
     placeholder: '',
-    // TODO: change readonly value to false by default
-    readonly: true,
+    readonly: false,
     value: '',
     onChange: null,
+    onBlur: null,
   };
 
   render() {
@@ -46,6 +47,7 @@ export class Textarea extends React.Component<TextareaProps> {
       readonly,
       value,
       onChange,
+      onBlur,
     } = this.props;
 
     return (
@@ -66,6 +68,7 @@ export class Textarea extends React.Component<TextareaProps> {
         readOnly={readonly}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
     );
   }

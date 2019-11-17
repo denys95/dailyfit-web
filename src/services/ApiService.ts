@@ -1,4 +1,5 @@
 import { BaseService } from '../services';
+import { Country } from '../models';
 
 const API_URL = process.env.API_URL;
 
@@ -22,7 +23,18 @@ class ApiService extends BaseService {
    * Get user info
    */
   public getUser(): Promise<any> {
-    const url = `http://www.mocky.io/v2/5dad97fc2d0000a542e4bb35`;
+    const url = `http://www.mocky.io/v2/5dc5645b3200008000769a0d`;
+    return this.authorizedRequest(url, {
+      method: 'GET',
+    });
+  }
+
+  /**
+   * GET /api/dictionary/countries
+   * Get countries list
+   */
+  public getCountries(): Promise<any> {
+    const url = `http://www.mocky.io/v2/5db88af33b0000eaa535f1e4`;
     return this.authorizedRequest(url, {
       method: 'GET',
     });

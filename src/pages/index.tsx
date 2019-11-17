@@ -6,3 +6,8 @@ export * from './ResetPassword/ResetPassword';
 export * from './Exercises/Exercises';
 export * from './Settings/Settings';
 export * from './Dashboard/Dashboard';
+export * from './ExercisesView/ExercisesView';
+export * from './Workouts/Workouts';
+export * from './WorkoutsView/WorkoutsView';
+export * from './WorkoutsEdit/WorkoutsEdit';
+export * from './Calendar/Calendar';

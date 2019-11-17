@@ -1,0 +1,34 @@
+.calendar-header {
+  .calendar-header-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+}
+
+.calendar-table {
+  position: relative;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  z-index: 1;
+  background: #fff;
+
+  .calendar-table-header-cell,
+  .calendar-table-cell {
+    border-width: 1px;;
+    border-style: solid;
+    border-color: rgba(72, 94, 144, 0.16);
+  }
+
+  .calendar-table-header-cell {
+    padding: 8px;
+    text-align: center;
+  }
+
+  .calendar-table-cell {
+    padding: 8px 16px 32px;
+    vertical-align: top;
+    text-align: right;
+  }
+}

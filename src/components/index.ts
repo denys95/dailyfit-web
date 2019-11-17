@@ -17,3 +17,5 @@ export * from './MaterialIcon/MaterialIcon';
 export * from './Alert/Alert';
 export * from './Navbar/Navbar';
 export * from './Sidebar/Sidebar';
+export * from './RadioButton/RadioButton';
+export * from './Pagination/Pagination';

@@ -3,21 +3,24 @@ import { action, computed, observable, runInAction } from 'mobx';
 import { User } from '../models';
 import { Gender, OperationState } from '../enums';
 import { apiService } from '../services';
+import { SelectOption } from '../components';
 
 export class SettingsStore {
   @observable user: User;
+  @observable countries: SelectOption[];
   @observable state: OperationState = OperationState.None;
 
   constructor() {
     this.user = {
-      firstName: '',
-      lastName: '',
+      name: '',
       email: '',
       avatar: '',
       birthday: '',
       gender: Gender.MALE,
-      city: '',
+      language: '',
     };
+
+    this.countries = [];
   }
 
   @action
@@ -38,8 +41,24 @@ export class SettingsStore {
     }
   };
 
-  @computed get userName() {
-    const { firstName = '', lastName = '' } = this.user;
-    return `${firstName} ${lastName}`;
-  }
+  @action
+  getCountries = async () => {
+    this.state = OperationState.Pending;
+    try {
+      const response = await apiService.getCountries();
+      if (!response.error) {
+        runInAction(() => {
+          this.state = OperationState.Success;
+          this.countries = response.data.map(item => ({
+            label: item.name,
+            value: item.code,
+          }));
+        });
+      } else {
+        this.state = OperationState.Error;
+      }
+    } catch (event) {
+      this.state = OperationState.Error;
+    }
+  };
 }

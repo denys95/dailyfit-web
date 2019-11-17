@@ -1,14 +1,12 @@
 import { Gender } from '../enums';
 
 export interface User {
-  firstName?: string;
-  lastName?: string;
+  id?: number;
   email: string;
-  avatar?: string;
+  name?: string;
   birthday?: string;
+  avatar?: string;
   gender?: Gender;
-  city?: string;
-  facebook?: string;
-  twitter?: string;
-  instagram?: string;
+  // country language code
+  language?: string;
 }
